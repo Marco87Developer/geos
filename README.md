@@ -1,4 +1,6 @@
-![](https://img.shields.io/badge/pub-0.1.0--nullsafety.1-yellow)
+![](https://img.shields.io/badge/pub-0.1.0--dev.1-orange)
+
+**This package satisfies null safety almost completely. The only reason it doesn’t satisfy it 100% is because it depends on the [Google Maps for Flutter](https://pub.dev/packages/google_maps_flutter) package.**
 
 # Geos
 
