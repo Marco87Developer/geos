@@ -1,3 +1,7 @@
+## [0.1.0-nullsafety.3] - 2021-1-26.
+
+* Removed `@immutable` annotation for the `Place` class.
+
 ## [0.1.0-nullsafety.2] - 2021-1-26.
 
 * Added repository reference.

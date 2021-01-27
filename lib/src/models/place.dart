@@ -11,7 +11,6 @@ const String _tagsKey = 'tags';
 
 /// This class models a representation of a place.
 ///
-@immutable
 class Place implements Comparable {
   /// Representation of a place.
   ///

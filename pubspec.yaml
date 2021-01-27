@@ -1,6 +1,6 @@
 name: geos
 description: A set of classes useful in geographical context.
-version: 0.1.0-nullsafety.2
+version: 0.1.0-nullsafety.3
 repository: https://github.com/Marco87Developer/geos
 homepage: https://marco87.dev
 
