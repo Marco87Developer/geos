@@ -1,18 +1,18 @@
 name: geos
 description: A set of classes useful in geographical context.
-version: 0.1.0-nullsafety.3
+version: 1.0.0
 repository: https://github.com/Marco87Developer/geos
 homepage: https://marco87.dev
 
 environment:
-  sdk: ">=2.12.0-133.7.beta <3.0.0"
-  flutter: ">=1.25.0-8.3.pre <2.0.0"
+  sdk: ">=2.12.0-0 <3.0.0"
+  # flutter: ">=1.25.0-8.3.pre <2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  pedantic: ^1.10.0-nullsafety.3
+  pedantic: ^1.10.0
 
 dev_dependencies:
   flutter_test:
