@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 const String _addressKey = 'address';
 const String _latitudeKey = 'latitude';
@@ -14,14 +15,16 @@ const String _tagsKey = 'tags';
 class Place implements Comparable {
   /// Representation of a place.
   ///
-  /// It **requires** these fields: `String` [address], `double` [latitude] and
-  /// `double` [longitude].
+  /// It **requires** these fields:
+  ///
+  /// * `String` [address].
+  /// * `LatLng` [position].
+  /// * `List<String>` [tags].
   ///
   const Place({
     required this.address,
-    required this.latitude,
-    required this.longitude,
     this.name = '',
+    required this.position,
     required List<String> tags,
   }) : _tags = tags;
 
@@ -31,22 +34,23 @@ class Place implements Comparable {
   ///
   Place.fromMap(Map<String, dynamic> map)
       : address = map[_addressKey],
-        latitude = double.parse('${map[_latitudeKey]}'),
-        longitude = double.parse('${map[_longitudeKey]}'),
+        position = LatLng(
+          double.parse('${map[_latitudeKey]}'),
+          double.parse('${map[_longitudeKey]}'),
+        ),
         name = map[_nameKey],
         _tags = map[_tagsKey];
 
   /// This address expressed in the string format.
   final String address;
 
-  /// The latitude coordinate, stored as degrees, of this place.
-  final double latitude;
-
-  /// The longitude coordinate, stored as degrees, of this place.
-  final double longitude;
-
   /// This is the name for the place.
   final String name;
+
+  /// The latitude and longitude coordinates, saved in a LatLng (from
+  /// [google_maps_flutter](https://pub.dev/packages/google_maps_flutter)
+  /// package) instance.
+  final LatLng position;
 
   /// The tags associated with this place.
   final List<String> _tags;
@@ -66,15 +70,13 @@ class Place implements Comparable {
   ///
   Place copyWith({
     String? address,
-    double? latitude,
-    double? longitude,
+    LatLng? position,
     String? name,
     List<String>? tags,
   }) =>
       Place(
         address: address ?? this.address,
-        latitude: latitude ?? this.latitude,
-        longitude: longitude ?? this.longitude,
+        position: position ?? this.position,
         name: name ?? this.name,
         tags: tags ?? this.tags,
       );
@@ -89,10 +91,10 @@ class Place implements Comparable {
     const double f = (a - b) / a;
 
     /// From degrees to radians
-    double lat1 = latitude * pi / 180;
-    double lng1 = longitude * pi / 180;
-    double lat2 = other.latitude * pi / 180;
-    double lng2 = other.longitude * pi / 180;
+    double lat1 = position.latitude * pi / 180;
+    double lng1 = position.longitude * pi / 180;
+    double lat2 = other.position.latitude * pi / 180;
+    double lng2 = other.position.longitude * pi / 180;
 
     /// Correct for error at exact poles by adjusting 0.6 mm
     if ((pi / 2 - lat1.abs()).abs() < 1e-10) {
@@ -182,25 +184,25 @@ class Place implements Comparable {
   ///
   Map<String, dynamic> toMap() => {
         _addressKey: address,
-        _latitudeKey: latitude.toStringAsFixed(12),
-        _longitudeKey: longitude.toStringAsFixed(12),
+        _latitudeKey: position.latitude.toStringAsFixed(12),
+        _longitudeKey: position.longitude.toStringAsFixed(12),
         _nameKey: name,
         _tagsKey: tags,
       };
 
   /// The order of the comparisons is:
   ///
-  /// 1. Quadratic distance from the origin ([latitude].latitude² +
-  /// [latitude].longitude²)
+  /// 1. Quadratic distance from the origin ([position].latitude² +
+  /// [position].longitude²)
   /// 2. [address]
   /// 3. [name]
   ///
   @override
   int compareTo(covariant Place other) {
     final num quadraticDistanceFromOrigin =
-        pow(latitude, 2) + pow(longitude, 2);
+        pow(position.latitude, 2) + pow(position.longitude, 2);
     final num otherQuadraticDistanceFromOrigin =
-        pow(other.latitude, 2) + pow(other.longitude, 2);
+        pow(other.position.latitude, 2) + pow(other.position.longitude, 2);
 
     // 1º comparison
     final int comparison1 =
@@ -217,7 +219,7 @@ class Place implements Comparable {
   }
 
   @override
-  int get hashCode => hashValues(address, latitude, longitude, name);
+  int get hashCode => hashValues(address, name, position);
 
   /// Returns if this instance is less than the [other].
   ///

@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:geos/src/models/place.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
   test('toMap()', () {
     final Place place = Place(
       address: 'Address1',
-      latitude: 50,
-      longitude: 120.537,
+      position: LatLng(50, 120.537),
       name: 'Name1',
       tags: ['tag1', 'tag2', 'tag3'],
     );
@@ -36,8 +36,7 @@ void main() {
         Place.fromMap(mapOK),
         Place(
           address: 'Address',
-          latitude: 50,
-          longitude: 120.537,
+          position: LatLng(50, 120.537),
           name: 'Name',
           tags: ['tag1', 'tag2', 'tag3'],
         ));
@@ -46,15 +45,13 @@ void main() {
   test('Tags', () {
     final Place place1 = Place(
       address: 'Address1',
-      latitude: 50,
-      longitude: 120.537,
+      position: LatLng(50, 120.537),
       name: 'Name1',
       tags: ['tag3', 'tag1', 'tag2', 'tag1'],
     );
     final Place place2 = Place(
       address: 'Address1',
-      latitude: 50,
-      longitude: 120.537,
+      position: LatLng(50, 120.537),
       name: 'Name1',
       tags: [],
     );
@@ -75,15 +72,13 @@ void main() {
   test('copyWith()', () {
     final Place place1 = Place(
       address: 'Address1',
-      latitude: 50,
-      longitude: 120.537,
+      position: LatLng(50, 120.537),
       name: 'Name1',
       tags: ['tag3', 'tag1', 'tag2', 'tag1'],
     );
     final Place place2 = Place(
       address: 'Address1',
-      latitude: 50,
-      longitude: 120.537,
+      position: LatLng(50, 120.537),
       name: 'Name1',
       tags: [],
     );
@@ -94,22 +89,19 @@ void main() {
   test('distanceWGS84()', () {
     final Place place1 = Place(
       address: 'Address1',
-      latitude: 50,
-      longitude: 120.537,
+      position: LatLng(50, 120.537),
       name: 'Name1',
       tags: ['tag3', 'tag1', 'tag2', 'tag1'],
     );
     final Place place2 = Place(
       address: 'Address1',
-      latitude: -35,
-      longitude: 1.5,
+      position: LatLng(-35, 1.5),
       name: 'Name1',
       tags: ['tag3', 'tag1', 'tag2', 'tag1'],
     );
     final Place place3 = Place(
       address: 'Address1',
-      latitude: 35,
-      longitude: -1.5,
+      position: LatLng(35, -1.5),
       name: 'Name1',
       tags: ['tag3', 'tag1', 'tag2', 'tag1'],
     );

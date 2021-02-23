@@ -1,6 +1,6 @@
 name: geos
 description: A set of classes useful in geographical context.
-version: 1.0.0
+version: 1.1.0
 repository: https://github.com/Marco87Developer/geos
 homepage: https://marco87.dev
 
@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  google_maps_flutter: ^2.0.0-nullsafety
   pedantic: ^1.10.0
 
 dev_dependencies:
