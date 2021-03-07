@@ -5,15 +5,15 @@ repository: https://github.com/Marco87Developer/geos
 homepage: https://marco87.dev
 
 environment:
-  sdk: ">=2.12.0-0 <3.0.0"
-  # flutter: ">=1.25.0-8.3.pre <2.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  google_maps_flutter: ^2.0.0-nullsafety
-  pedantic: ^1.10.0
+  google_maps_flutter: ^2.0.1
+  pedantic: ^1.11.0
 
 dev_dependencies:
   flutter_test:
