@@ -1,0 +1,12 @@
+{
+    "address": "This is the address",
+    "isfavorite": true,
+    "latitude": "zero",
+    "longitude": 0.0,
+    "name": "This is the name",
+    "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+    ]
+}
