@@ -2046,11 +2046,11 @@ enum Country {
     numericCode: '788',
   ),
 
-  /// Turkey
-  turkey(
+  /// Türkiye
+  turkiye(
     alpha2Code: 'TR',
     alpha3Code: 'TUR',
-    englishName: 'Turkey',
+    englishName: 'Türkiye',
     flagEmoji: '🇹🇷',
     numericCode: '792',
   ),

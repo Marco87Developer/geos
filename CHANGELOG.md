@@ -1,3 +1,11 @@
+## 2.0.1
+
+Release date: 2022-06-03.
+
+### Changed
+
+* [`Country` enum] In accordance with the UN decision, the name of Turkey was changed to Türkiye.
+
 ## 2.0.0
 
 Release date: 2022-05-12.
