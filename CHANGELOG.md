@@ -1,3 +1,11 @@
+## 2.0.2
+
+Release date: 2022-08-13.
+
+### Changed
+
+* Minimum Dart SDK was updated to `2.17.6`.
+
 ## 2.0.1
 
 Release date: 2022-06-03.
