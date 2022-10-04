@@ -1,3 +1,11 @@
+## 2.1.0
+
+Release date: 2022-10-03.
+
+### Changed
+
+* [`Country` enum] `Country` now implements `Comparable<Country>`.
+
 ## 2.0.2
 
 Release date: 2022-08-13.

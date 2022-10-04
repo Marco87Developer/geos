@@ -1,15 +1,15 @@
 name: geos
 description: A set of classes useful in geographical context.
-version: 2.0.2
+version: 2.1.0
 repository: https://github.com/Marco87Developer/geos
-# homepage: https://www.example.com
+homepage: https://marco87.dev
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.18.2 <3.0.0"
 
 dependencies:
   collection: ^1.16.0
-  meta: ^1.7.0
+  meta: ^1.8.0
 
 dev_dependencies:
   lints: ^2.0.0

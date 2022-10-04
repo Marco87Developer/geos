@@ -1,7 +1,7 @@
 /// A **country**, identified according to
 /// [ISO 3166](https://www.iso.org/iso-3166-country-codes.html).
 ///
-enum Country {
+enum Country implements Comparable<Country> {
   /// Afghanistan
   afghanistan(
     alpha2Code: 'AF',
@@ -2327,6 +2327,27 @@ enum Country {
   /// The **3-digit numeric code** (“numeric-3”) which can be useful if you need
   /// to avoid using Latin script.
   final String numericCode;
+
+  /// Compares this [Country] value to [other].
+  ///
+  /// Returns a **negative** value if this [Country] value is ordered before
+  /// [other], a **positive** value if this [Country] value is ordered after
+  /// [other], or **zero** if this [Country] value and [other] are equivalent.
+  ///
+  /// The comparison is made **based on the [name] property** of these two
+  /// countries and is **not case sensitive**.
+  ///
+  /// Examples:
+  ///
+  /// ```dart
+  /// Country.antarctica.compareTo(Country.unitedStatesOfAmerica); // isNegative
+  /// Country.italy.compareTo(Country.italy); // isZero
+  /// Country.costaRica.compareTo(Country.alandIslands); // isPositive
+  /// ```
+  ///
+  @override
+  int compareTo(final Country other) =>
+      name.toLowerCase().compareTo(other.name.toLowerCase());
 
   /// Returns a string representation of this [Country] value.
   ///

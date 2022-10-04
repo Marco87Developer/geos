@@ -182,6 +182,17 @@ void main() {
     });
   });
 
+  group('compareTo:', () {
+    test('Must compare a Country value to another one.', () {
+      expect(
+        Country.antarctica.compareTo(Country.unitedStatesOfAmerica),
+        isNegative,
+      );
+      expect(Country.italy.compareTo(Country.italy), isZero);
+      expect(Country.costaRica.compareTo(Country.alandIslands), isPositive);
+    });
+  });
+
   group('toString:', () {
     test(
         'This string must match [englishName] property of this [Country]'
