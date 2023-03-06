@@ -1,3 +1,11 @@
+## 2.1.1
+
+Release date: 2023-03-06.
+
+### Fixed
+
+* `Country.unitedKingdomOfGreatBritainAndNorthernIreland` name.
+
 ## 2.1.0
 
 Release date: 2022-10-03.

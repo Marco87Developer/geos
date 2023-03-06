@@ -2110,7 +2110,7 @@ enum Country implements Comparable<Country> {
   ),
 
   /// United Kingdom of Great Britain and Northern Ireland
-  unitedKingdomOfGreatBritainAndNorthernIrelan(
+  unitedKingdomOfGreatBritainAndNorthernIreland(
     alpha2Code: 'GB',
     alpha3Code: 'GBR',
     englishName: 'United Kingdom of Great Britain and Northern Ireland',
