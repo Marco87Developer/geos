@@ -1,3 +1,15 @@
+## 2.1.2
+
+Release date: 2023-03-06.
+
+### Removed
+
+* [`collection`](https://pub.dev/packages/collection) dependency.
+
+### Changed
+
+* Updated the dependencies.
+
 ## 2.1.1
 
 Release date: 2023-03-06.
